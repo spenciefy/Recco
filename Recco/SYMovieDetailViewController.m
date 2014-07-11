@@ -26,6 +26,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationItem.titleView.clipsToBounds = NO;
+    self.title = @"The Internship";
+    UILabel* tlabel=[[UILabel alloc] initWithFrame:CGRectMake(0,00, 200, 40)];
+    tlabel.text=self.navigationItem.title;
+    tlabel.textColor= [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0];
+    tlabel.font = [UIFont fontWithName:@"HanSolo" size: 37.0];
+    tlabel.backgroundColor =[UIColor clearColor];
+    tlabel.adjustsFontSizeToFitWidth=YES;
+    self.navigationItem.titleView=tlabel;
+
     // Do any additional setup after loading the view.
 }
 

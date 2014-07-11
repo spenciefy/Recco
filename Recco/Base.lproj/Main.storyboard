@@ -33,7 +33,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Recco" id="HPP-Hx-ZXU">
-                        <barButtonItem key="rightBarButtonItem" title="View Likes" id="8Oo-wb-EDf">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Epg-qU-xaz"/>
+                        <barButtonItem key="rightBarButtonItem" title="Liked" id="8Oo-wb-EDf">
                             <connections>
                                 <segue destination="JEq-Sm-JXm" kind="push" id="W1N-vR-wGL"/>
                             </connections>
@@ -83,7 +84,7 @@
                             <outlet property="delegate" destination="JEq-Sm-JXm" id="QYB-LO-vSD"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="9Sr-bg-HtN"/>
+                    <navigationItem key="navigationItem" title="Liked" id="9Sr-bg-HtN"/>
                     <connections>
                         <segue destination="XbU-AA-TQS" kind="push" identifier="pushDetailFromCollection" id="ZYz-xF-ljw"/>
                     </connections>
@@ -92,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="541" y="357"/>
         </scene>
-        <!--Movie Detail View Controller - movie-->
+        <!--Movie Detail View Controller - The Internship-->
         <scene sceneID="BIT-AG-WjS">
             <objects>
                 <viewController storyboardIdentifier="detailVC" id="XbU-AA-TQS" customClass="SYMovieDetailViewController" sceneMemberID="viewController">
@@ -172,7 +173,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="movie" id="jb4-L6-Vmb"/>
+                    <navigationItem key="navigationItem" title="The Internship" id="jb4-L6-Vmb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9XM-al-ySC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -188,6 +189,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ZYz-xF-ljw"/>
+        <segue reference="Oeo-mZ-5DF"/>
     </inferredMetricsTieBreakers>
 </document>

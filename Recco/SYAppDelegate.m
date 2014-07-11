@@ -13,12 +13,35 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
-//    
-//    self.window.rootViewController = [SYViewController new];
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowOffset = CGSizeMake(0.0, 1.0);
+    shadow.shadowColor = [UIColor whiteColor];
+   
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1)
+    {
+        [[UINavigationBar appearance] setTintColor: [UIColor whiteColor]];
+    }
+    else
+    {
+        [[UINavigationBar appearance] setBarTintColor: [UIColor whiteColor]];
+    }
+    
+    
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+     setTitleTextAttributes:
+     @{NSForegroundColorAttributeName: [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:20.0/255.0 alpha:1.0],
+       NSShadowAttributeName:shadow,
+       NSFontAttributeName:[UIFont fontWithName:@"HanSolo" size:24]
+       }
+     forState:UIControlStateNormal];
+    
 
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
+                                                           [UIFont fontWithName:@"HanSolo" size:37.0], NSFontAttributeName, nil]];
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:4 forBarMetrics:UIBarMetricsDefault];
+    
     return YES;
 }
 							

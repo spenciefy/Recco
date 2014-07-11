@@ -24,6 +24,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithTitle:@"Recco" style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)];
+    self.navigationItem.leftBarButtonItem = leftButton;
+    
     SYData *syData = [SYData sharedManager];
     likedMovies = syData.likedMovies;
 }
@@ -54,6 +57,8 @@
     return UIEdgeInsetsMake(10, 10, 10, 10);
 }
 
-
+-(void)backButtonPressed:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

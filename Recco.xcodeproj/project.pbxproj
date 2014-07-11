@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C358D20196FDCF0006A4511 /* hansolov3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C358D1F196FDCF0006A4511 /* hansolov3.ttf */; };
+		6C358D21196FDE55006A4511 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2A79B196EFF2A0067369C /* Main.storyboard */; };
+		6C358D22196FDEA8006A4511 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD2A78D196EFF290067369C /* UIKit.framework */; };
 		6CD2A78A196EFF290067369C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD2A789196EFF290067369C /* Foundation.framework */; };
 		6CD2A78C196EFF290067369C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD2A78B196EFF290067369C /* CoreGraphics.framework */; };
-		6CD2A78E196EFF290067369C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD2A78D196EFF290067369C /* UIKit.framework */; };
 		6CD2A794196EFF2A0067369C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2A792196EFF2A0067369C /* InfoPlist.strings */; };
 		6CD2A796196EFF2A0067369C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD2A795196EFF2A0067369C /* main.m */; };
 		6CD2A79A196EFF2A0067369C /* SYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD2A799196EFF2A0067369C /* SYAppDelegate.m */; };
-		6CD2A79D196EFF2A0067369C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2A79B196EFF2A0067369C /* Main.storyboard */; };
 		6CD2A7A0196EFF2A0067369C /* SYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD2A79F196EFF2A0067369C /* SYViewController.m */; };
 		6CD2A7A2196EFF2A0067369C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2A7A1196EFF2A0067369C /* Images.xcassets */; };
 		6CD2A7A9196EFF2B0067369C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD2A7A8196EFF2A0067369C /* XCTest.framework */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C358D1F196FDCF0006A4511 /* hansolov3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hansolov3.ttf; sourceTree = "<group>"; };
 		6CD2A786196EFF290067369C /* Recco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD2A789196EFF290067369C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6CD2A78B196EFF290067369C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -160,8 +162,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C358D22196FDEA8006A4511 /* UIKit.framework in Frameworks */,
 				6CD2A78C196EFF290067369C /* CoreGraphics.framework in Frameworks */,
-				6CD2A78E196EFF290067369C /* UIKit.framework in Frameworks */,
 				6CD2A78A196EFF290067369C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +235,7 @@
 		6CD2A790196EFF2A0067369C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6C358D1F196FDCF0006A4511 /* hansolov3.ttf */,
 				6CD2A791196EFF2A0067369C /* Recco-Info.plist */,
 				6CD2A792196EFF2A0067369C /* InfoPlist.strings */,
 				6CD2A795196EFF2A0067369C /* main.m */,
@@ -502,14 +505,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C358D21196FDE55006A4511 /* Main.storyboard in Resources */,
 				6CD2A7F3196F1DC20067369C /* green_tomato.png in Resources */,
 				6CD2A7A2196EFF2A0067369C /* Images.xcassets in Resources */,
 				6CD2A87D196FA3FD0067369C /* LICENSE in Resources */,
 				6CD2A7F1196F1DC20067369C /* popcorn_up.png in Resources */,
 				6CD2A794196EFF2A0067369C /* InfoPlist.strings in Resources */,
 				6CD2A7F2196F1DC20067369C /* red_tomato.png in Resources */,
+				6C358D20196FDCF0006A4511 /* hansolov3.ttf in Resources */,
 				6CD2A87E196FA3FD0067369C /* README.md in Resources */,
-				6CD2A79D196EFF2A0067369C /* Main.storyboard in Resources */,
 				6CD2A7F0196F1DC20067369C /* popcorn_down.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,7 +691,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Recco/Recco-Prefix.pch";
 				INFOPLIST_FILE = "Recco/Recco-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -702,7 +706,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Recco/Recco-Prefix.pch";
 				INFOPLIST_FILE = "Recco/Recco-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

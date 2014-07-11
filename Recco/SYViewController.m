@@ -124,7 +124,7 @@
                                   options:kNilOptions
                                   error:&error];
             
-            SYMovie *movie = [[SYMovie alloc]initWithTitle:[movieDict objectForKey:@"title"] movieID:[movieDict objectForKey:@"id"] posterImage:[json objectForKey:@"Poster"] mpaaRating:[movieDict objectForKey:@"mpaa_rating"] criticRating:[[movieDict objectForKey:@"ratings"] objectForKey:@"critics_score"] audienceRating:[[movieDict objectForKey:@"ratings"] objectForKey:@"audience_score"]  runtime:[NSString stringWithFormat:@"%@",[movieDict objectForKey:@"runtime"]] genres:[json objectForKey:@"Genre"] synopysis:[movieDict objectForKey:@"synopsis"] rtURL:[[movieDict objectForKey:@"links"]objectForKey:@"alternate"]];
+                 SYMovie *movie = [[SYMovie alloc]initWithTitle:[movieDict objectForKey:@"title"] movieID:[movieDict objectForKey:@"id"] posterImage:[json objectForKey:@"Poster"] mpaaRating:[movieDict objectForKey:@"mpaa_rating"] criticRating:[[movieDict objectForKey:@"ratings"] objectForKey:@"critics_score"] audienceRating:[[movieDict objectForKey:@"ratings"] objectForKey:@"audience_score"]  runtime:[NSString stringWithFormat:@"%@",[movieDict objectForKey:@"runtime"]] genres:[[json objectForKey:@"Genre"] componentsSeparatedByString:@", "] synopysis:[movieDict objectForKey:@"synopsis"] rtURL:[[movieDict objectForKey:@"links"]objectForKey:@"alternate"]];
             
             if(![self.displayedMovies containsObject:movie.movieID]){
                  NSLog(@"adding: %@", [movieDict objectForKey:@"title"]);
