@@ -40,7 +40,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="XbU-AA-TQS" kind="push" id="Oeo-mZ-5DF"/>
+                        <segue destination="XbU-AA-TQS" kind="push" identifier="pushDetailFromMain" id="Oeo-mZ-5DF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -84,6 +84,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="9Sr-bg-HtN"/>
+                    <connections>
+                        <segue destination="XbU-AA-TQS" kind="push" identifier="pushDetailFromCollection" id="ZYz-xF-ljw"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Alc-vQ-hJz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -184,4 +187,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZYz-xF-ljw"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -62,38 +62,23 @@
 
 // This is called then a user swipes the view fully left or right.
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
-    if([self.movies count] < 2){
-        [self getRandomMoviesFor:3 completionBlock:^(BOOL success){
-            if(success){
-                if (direction == MDCSwipeDirectionLeft) {
-                    NSLog(@"You noped %@.", self.currentMovie.title);
-                    
-                } else {
-                    NSLog(@"You liked %@.", self.currentMovie.title);
-                    [self addMovieRecommendationForMovie:self.currentMovie.movieID];
-                }
-                
-                self.frontCardView = self.backCardView;
-
-            }
-        }];
-
-    }
-    else{
+    SYData *syData = [SYData sharedManager];
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"You noped %@.", self.currentMovie.title);
         
     } else {
-        SYData *syData = [SYData sharedManager];
-        NSLog(@"You liked %@.", self.currentMovie.title);
-        [syData.likedMovies addObject:_currentMovie];
-        NSLog(@"eewffewewffewfwefwefewfwewfewfeweffew");
+        NSLog(@"You liked %@", self.currentMovie.title);
+        [syData.likedMovies addObject:self.currentMovie];
+        
         [self addMovieRecommendationForMovie:self.currentMovie.movieID];
     }
-        self.frontCardView = self.backCardView;
-        
+    
+    if([self.movies count] <= 2){
+        [self getRandomMoviesFor:3 completionBlock:^(BOOL success){
+         }];
     }
     
+    self.frontCardView = self.backCardView;
     if ((self.backCardView = [self popMovieViewWithFrame:[self backCardViewFrame]])) {
         // Fade the back card into view.
         self.backCardView.alpha = 0.f;
@@ -104,14 +89,15 @@
                          animations:^{
                              self.backCardView.alpha = 1.f;
                          } completion:nil];
-
+        
     }
-   
+    
+ 
 }
 
 -(void) viewWasTapped:(UIView *)view{
     NSLog(@"view was tapped and now pushing");
-    [self performSegueWithIdentifier:@"" sender:self];
+    [self performSegueWithIdentifier:@"pushDetailFromMain" sender:self];
 }
 
 -(void)addMovieRecommendationForMovie:(NSString *)movieID {
