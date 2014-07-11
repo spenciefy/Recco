@@ -32,9 +32,8 @@
  */
 @interface MDCSwipeToChooseView : UIView
 
-/*!
- * The main image to be displayed and then "liked" or "disliked".
- */
+@property (nonatomic, strong) UIButton *viewButton;
+
 @property (nonatomic, strong) UIImageView *posterImageView;
 @property (nonatomic, strong) UILabel *movieMPAARating;
 

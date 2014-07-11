@@ -7,8 +7,9 @@
 //
 
 #import "SYViewController.h"
-#import "Reachability.h"
 #import "SYData.h"
+#import "SYMovieDetailViewController.h"
+
 
 #define kAPI_KEY @"zsjdduvb57m6g4gjys4hyyub"
 
@@ -106,6 +107,11 @@
 
     }
    
+}
+
+-(void) viewWasTapped:(UIView *)view{
+    NSLog(@"view was tapped and now pushing");
+    [self performSegueWithIdentifier:@"" sender:self];
 }
 
 -(void)addMovieRecommendationForMovie:(NSString *)movieID {
@@ -223,62 +229,6 @@
    
 }
 
-//- (void)getRandomMoviesFor:(NSUInteger)numberOfMovies completion:(void (^)(BOOL)){
-//    
-//    NSString *url = @"";
-//    switch (arc4random() % 6) {
-//        case 0:
-//            url = [NSString stringWithFormat:@"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=%@&limit=50",kAPI_KEY];
-//            break;
-//        case 1:
-//            url = [NSString stringWithFormat:@"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=%@&page_limit=50",kAPI_KEY];
-//            break;
-//        case 2:
-//            url = [NSString stringWithFormat:@"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/opening.json?apikey=%@&limit=50",kAPI_KEY];
-//            break;
-//        case 3:
-//            url = [NSString stringWithFormat:@"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=%@&limit=50",kAPI_KEY];
-//            break;
-//        case 4:
-//            url = [NSString stringWithFormat:@"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/current_releases.json?apikey=%@&page_limit=50",kAPI_KEY];
-//            break;
-//        case 5:
-//            url = [NSString stringWithFormat:@"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/new_releases.json?apikey=%@&page_limit=50",kAPI_KEY];
-//            break;
-//        case 6:
-//            url = [NSString stringWithFormat:@"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/upcoming.json?apikey=%@&&page_limit=50",kAPI_KEY];
-//            break;
-//        default:
-//            url = [NSString stringWithFormat:@"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/new_releases.json?apikey=%@&limit=50",kAPI_KEY];
-//            break;
-//    }
-//    
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-//        
-//        id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//        NSMutableArray *movies = [[NSMutableArray alloc]init];
-//        
-//        movies = [[object objectForKey:@"movies"]mutableCopy];
-//        for (int i = 0; i < [movies count]; ++i) {
-//            int nElements = [movies count] - i;
-//            int n = (arc4random() % nElements) + i;
-//            [movies exchangeObjectAtIndex:i withObjectAtIndex:n];
-//        }
-//        for(int i = 0; i < numberOfMovies; i++){
-//            NSDictionary *movieDict = [movies objectAtIndex:i];
-//            
-//            SYMovie *movie = [[SYMovie alloc]initWithTitle:[movieDict objectForKey:@"title"] movieID:[movieDict objectForKey:@"id"] posterImage:[[movieDict objectForKey:@"posters"]objectForKey:@"original"] mpaaRating:[movieDict objectForKey:@"mpaa_rating"] criticRating:[[movieDict objectForKey:@"ratings"] objectForKey:@"critics_score"] audienceRating:[[movieDict objectForKey:@"ratings"] objectForKey:@"audience_score"]  runtime:[NSString stringWithFormat:@"%@",[movieDict objectForKey:@"runtime"]]];
-//            if(![self.displayedMovies containsObject:movie.movieID]){
-//                NSLog(@"adding: %@ for url:%@", [movieDict objectForKey:@"title"],url);
-//                [self.movies addObject:movie];
-//            }
-//            
-//        }
-//        
-//    }];
-//    
-//}
 
 - (SYMovieView *)popMovieViewWithFrame:(CGRect)frame {
     if ([self.movies count] == 0) {
@@ -337,6 +287,11 @@
 // Programmatically "likes" the front card view.
 - (void)likeFrontCardView {
     [self.frontCardView mdc_swipe:MDCSwipeDirectionRight];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+        SYMovieDetailViewController *detailVC = segue.destinationViewController;
+
 }
 
 @end

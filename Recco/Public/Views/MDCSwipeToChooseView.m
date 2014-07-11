@@ -29,6 +29,7 @@
 #import "UIColor+MDCRGB8Bit.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+WebCache.h"
+#import "MDCSwipeToChooseDelegate.h"
 
 static CGFloat const MDCSwipeToChooseViewHorizontalPadding = 10.f;
 static CGFloat const MDCSwipeToChooseViewTopPadding = 20.f;
@@ -64,9 +65,18 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
                                                  green:220.f
                                                   blue:220.f
                                                  alpha:1.f].CGColor;
+    
     _posterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 280, 400)];
     _posterImageView.clipsToBounds = YES;
     [self addSubview:_posterImageView];
+    
+    _viewButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _viewButton.frame = CGRectMake(0, 0, 280, 400);
+
+    [_viewButton addTarget:self action:@selector(viewTapped:) forControlEvents:UIControlEventTouchUpInside];
+    _viewButton.clipsToBounds = YES;
+    [self addSubview:_viewButton];
+    
     
     _movieMPAARating = [[UILabel alloc] initWithFrame:CGRectMake(_posterImageView.frame.size.width-60, 0, 60, 30)];
     _movieMPAARating.backgroundColor = [UIColor grayColor];
@@ -119,24 +129,27 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
     _genreLabel.font = [UIFont systemFontOfSize:15];
     _genreLabel.textColor = [UIColor grayColor];
     [_movieInfoView addSubview:_genreLabel];
+    
+    [self bringSubviewToFront:_viewButton];
+    
 }
 
 - (void)constructLikedView {
     CGRect frame = CGRectMake(MDCSwipeToChooseViewHorizontalPadding,
                               MDCSwipeToChooseViewTopPadding,
-                              CGRectGetMidX(_posterImageView.bounds),
+                              CGRectGetMidX(_viewButton.bounds),
                               MDCSwipeToChooseViewLabelWidth);
     self.likedView = [[UIView alloc] initWithFrame:frame];
     [self.likedView constructBorderedLabelWithText:self.options.likedText
                                              color:self.options.likedColor
                                              angle:self.options.likedRotationAngle];
     self.likedView.alpha = 0.f;
-    [self.posterImageView addSubview:self.likedView];
+    [self.viewButton addSubview:self.likedView];
 }
 
 - (void)constructNopeImageView {
     CGFloat width = CGRectGetMidX(self.posterImageView.bounds);
-    CGFloat xOrigin = CGRectGetMaxX(_posterImageView.bounds) - width - MDCSwipeToChooseViewHorizontalPadding;
+    CGFloat xOrigin = CGRectGetMaxX(_viewButton.bounds) - width - MDCSwipeToChooseViewHorizontalPadding;
     self.nopeView = [[UIImageView alloc] initWithFrame:CGRectMake(xOrigin,
                                                                   MDCSwipeToChooseViewTopPadding,
                                                                   width,
@@ -145,7 +158,7 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
                                             color:self.options.nopeColor
                                             angle:self.options.nopeRotationAngle];
     self.nopeView.alpha = 0.f;
-    [self.posterImageView addSubview:self.nopeView];
+    [self.viewButton addSubview:self.nopeView];
 }
 
 - (void)setupSwipeToChoose {
@@ -174,6 +187,13 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
     };
 
     [self mdc_swipeToChooseSetup:options];
+}
+
+- (void)viewTapped:(id)sender{
+    id<MDCSwipeToChooseDelegate> delegate = _options.delegate;
+    if ([delegate respondsToSelector:@selector(viewDidCancelSwipe:)]) {
+        [delegate viewWasTapped:self];;
+    }
 }
 
 @end
