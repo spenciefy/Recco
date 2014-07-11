@@ -26,6 +26,7 @@
 
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction;
 
-- (void)view:(UIView *)view wasTappedWithID:(NSString *)movieID;
+- (void)viewWasTapped:(UIView *)view;
+
 
 @end

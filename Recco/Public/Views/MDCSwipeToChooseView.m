@@ -29,6 +29,7 @@
 #import "UIColor+MDCRGB8Bit.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+WebCache.h"
+#import "MDCSwipeToChooseDelegate.h"
 
 static CGFloat const MDCSwipeToChooseViewHorizontalPadding = 10.f;
 static CGFloat const MDCSwipeToChooseViewTopPadding = 20.f;
@@ -119,6 +120,11 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
     _genreLabel.font = [UIFont systemFontOfSize:15];
     _genreLabel.textColor = [UIColor grayColor];
     [_movieInfoView addSubview:_genreLabel];
+    
+    _viewButton = [[UIButton alloc]initWithFrame:self.frame];
+    _viewButton = UIButtonTypeCustom;
+    [_viewButton addTarget:self action:@selector(viewTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_posterImageView];
 }
 
 - (void)constructLikedView {
@@ -174,6 +180,13 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
     };
 
     [self mdc_swipeToChooseSetup:options];
+}
+
+- (void)viewTapped:(id)sender{
+    id<MDCSwipeToChooseDelegate> delegate = _options.delegate;
+    if ([delegate respondsToSelector:@selector(viewDidCancelSwipe:)]) {
+        [delegate viewWasTapped:self];;
+    }
 }
 
 @end
