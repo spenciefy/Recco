@@ -7,6 +7,7 @@
 //
 
 #import "SYAppDelegate.h"
+#import "SYData.h"
 
 @implementation SYAppDelegate
 
@@ -46,6 +47,9 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+//    SYData *syData = [SYData sharedManager];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject: syData.likedMovies forKey: @"likedMovies"];
 }
 
 @end
