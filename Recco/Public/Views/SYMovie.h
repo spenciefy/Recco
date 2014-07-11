@@ -17,6 +17,9 @@
 @property (nonatomic, copy) NSNumber *criticRating;
 @property (nonatomic, copy) NSNumber *audienceRating;
 @property (nonatomic, copy) NSString *runtime;
+@property (nonatomic, copy) NSArray *genres;
+@property (nonatomic, copy) NSString *synopsis;
+@property (nonatomic, copy) NSString *rtURL;
 
 
 - (instancetype)initWithTitle:(NSString *)title
@@ -25,6 +28,9 @@
                    mpaaRating:(NSString *)mpaaRating
                  criticRating:(NSNumber *)criticRating
                audienceRating:(NSNumber *)audienceRating
-                       runtime:(NSString *)runtime;
+                       runtime:(NSString *)runtime
+                       genres:(NSArray *)genres
+                    synopysis:(NSString *)synopsis
+                        rtURL:(NSString *)rtURL;
 
 @end

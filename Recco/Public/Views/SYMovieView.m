@@ -41,6 +41,9 @@
         }
         self.runtimeLabel.text = [NSString stringWithFormat:@"%@ minutes", _movie.runtime];
      
+        //self.genreLabel.text = [_movie.genres componentsJoinedByString:@", "];
+        self.genreLabel.text = [_movie.genres firstObject];
+        //self.genreLabel.text = [NSString stringWithFormat:@"%@, %@", [_movie.genres firstObject], [_movie.genres objectAtIndex:1]];
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight |
         UIViewAutoresizingFlexibleWidth |
         UIViewAutoresizingFlexibleBottomMargin;

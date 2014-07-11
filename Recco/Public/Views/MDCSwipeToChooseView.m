@@ -76,7 +76,7 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
     _movieMPAARating.font = [UIFont boldSystemFontOfSize:15];
     [_posterImageView addSubview:_movieMPAARating];
     
-    _runtimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
+    _runtimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
     _runtimeLabel.backgroundColor = [UIColor grayColor];
     _runtimeLabel.textAlignment = NSTextAlignmentCenter;
     _runtimeLabel.textColor = [UIColor whiteColor];
@@ -96,19 +96,19 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
     _movieTitle.adjustsFontSizeToFitWidth = YES;
     [_movieInfoView addSubview:_movieTitle];
     
-    _tomatoRatingImage = [[UIImageView alloc]initWithFrame:CGRectMake(7, _movieTitle.frame.size.height + 5, 24, 24)];
+    _tomatoRatingImage = [[UIImageView alloc]initWithFrame:CGRectMake(7, _movieTitle.frame.size.height + 3, 28, 28)];
     [_movieInfoView addSubview:_tomatoRatingImage];
     
-    _tomatoRatingLabel = [[UILabel alloc]initWithFrame:CGRectMake(_tomatoRatingImage.frame.origin.x+_tomatoRatingImage.frame.size.width + 5 , _movieTitle.frame.size.height + 5, 40, 24)];
+    _tomatoRatingLabel = [[UILabel alloc]initWithFrame:CGRectMake(_tomatoRatingImage.frame.origin.x+_tomatoRatingImage.frame.size.width + 5 , _movieTitle.frame.size.height + 3, 40, 28)];
     _tomatoRatingLabel.textColor = [UIColor darkGrayColor];
     _tomatoRatingLabel.font = [UIFont systemFontOfSize:13];
     _tomatoRatingLabel.textAlignment = NSTextAlignmentLeft;
     [_movieInfoView addSubview:_tomatoRatingLabel];
     
-    _audienceRatingImage = [[UIImageView alloc]initWithFrame:CGRectMake(_tomatoRatingLabel.frame.origin.x + _tomatoRatingLabel.frame.size.width + 3, _movieTitle.frame.size.height + 5, 24, 24)];
+    _audienceRatingImage = [[UIImageView alloc]initWithFrame:CGRectMake(_tomatoRatingLabel.frame.origin.x + _tomatoRatingLabel.frame.size.width , _movieTitle.frame.size.height + 3, 28, 28)];
     [_movieInfoView addSubview:_audienceRatingImage];
     
-    _audienceRatingLabel = [[UILabel alloc]initWithFrame:CGRectMake(_audienceRatingImage.frame.origin.x + _audienceRatingImage.frame.size.width + 10, _movieTitle.frame.size.height + 5, 40, 24)];
+    _audienceRatingLabel = [[UILabel alloc]initWithFrame:CGRectMake(_audienceRatingImage.frame.origin.x + _audienceRatingImage.frame.size.width + 5, _movieTitle.frame.size.height + 3, 40, 28)];
     _audienceRatingLabel.textColor = [UIColor darkGrayColor];
     _audienceRatingLabel.font = [UIFont systemFontOfSize:13];
     _audienceRatingLabel.textAlignment = NSTextAlignmentLeft;

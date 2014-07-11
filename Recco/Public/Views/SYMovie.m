@@ -18,7 +18,10 @@
                    mpaaRating:(NSString *)mpaaRating
                  criticRating:(NSNumber *)criticRating
                audienceRating:(NSNumber *)audienceRating
-                       runtime:(NSString *)runtime {
+                      runtime:(NSString *)runtime
+                       genres:(NSArray *)genres
+                    synopysis:(NSString *)synopsis
+                        rtURL:(NSString *)rtURL {
     self = [super init];
     if (self) {
         _title = title;
@@ -28,6 +31,9 @@
         _criticRating = criticRating;
         _audienceRating = audienceRating;
         _runtime = runtime;
+        _genres = genres;
+        _synopsis = synopsis;
+        _rtURL = rtURL;
     }
     return self;
 }
