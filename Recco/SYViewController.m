@@ -110,9 +110,8 @@
 }
 
 -(void) viewWasTapped:(UIView *)view{
+    NSLog(@"view was tapped and now pushing");
     [self performSegueWithIdentifier:@"" sender:self];
-    
-
 }
 
 -(void)addMovieRecommendationForMovie:(NSString *)movieID {

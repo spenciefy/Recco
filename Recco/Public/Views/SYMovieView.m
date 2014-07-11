@@ -9,6 +9,7 @@
 #import "SYMovieView.h"
 #import "SYMovie.h"
 #import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 
 @implementation SYMovieView
 
@@ -23,6 +24,7 @@
         
         _movie = movie;
         [self.posterImageView setImageWithURL:[NSURL URLWithString:_movie.posterImage]];
+        //[self.viewButton setBackgroundImageWithURL:[NSURL URLWithString:_movie.posterImage] forState:UIControlStateNormal];
         self.movieTitle.text = _movie.title;
         self.movieMPAARating.text = _movie.mpaaRating;
         self.audienceRatingLabel.text = [NSString stringWithFormat:@"%@%%",[_movie.audienceRating stringValue]];
@@ -41,9 +43,8 @@
         }
         self.runtimeLabel.text = [NSString stringWithFormat:@"%@ minutes", _movie.runtime];
      
-        //self.genreLabel.text = [_movie.genres componentsJoinedByString:@", "];
         self.genreLabel.text = [_movie.genres firstObject];
-        //self.genreLabel.text = [NSString stringWithFormat:@"%@, %@", [_movie.genres firstObject], [_movie.genres objectAtIndex:1]];
+
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight |
         UIViewAutoresizingFlexibleWidth |
         UIViewAutoresizingFlexibleBottomMargin;
