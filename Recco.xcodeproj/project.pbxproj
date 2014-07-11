@@ -53,6 +53,8 @@
 		6CD2A888196FA3FD0067369C /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD2A86B196FA3FD0067369C /* UIImage+GIF.m */; };
 		6CD2A889196FA3FD0067369C /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD2A86D196FA3FD0067369C /* UIImage+MultiFormat.m */; };
 		6CD2A88A196FA3FD0067369C /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD2A86F196FA3FD0067369C /* UIImageView+WebCache.m */; };
+		972BFB5A196FBAAE00E3C4EC /* SYLikedMoviesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 972BFB59196FBAAE00E3C4EC /* SYLikedMoviesCollectionViewController.m */; };
+		972BFB5D196FBC3A00E3C4EC /* SYData.m in Sources */ = {isa = PBXBuildFile; fileRef = 972BFB5C196FBC3A00E3C4EC /* SYData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,10 @@
 		6CD2A86D196FA3FD0067369C /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		6CD2A86E196FA3FD0067369C /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		6CD2A86F196FA3FD0067369C /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		972BFB58196FBAAE00E3C4EC /* SYLikedMoviesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYLikedMoviesCollectionViewController.h; sourceTree = "<group>"; };
+		972BFB59196FBAAE00E3C4EC /* SYLikedMoviesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYLikedMoviesCollectionViewController.m; sourceTree = "<group>"; };
+		972BFB5B196FBC3A00E3C4EC /* SYData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYData.h; sourceTree = "<group>"; };
+		972BFB5C196FBC3A00E3C4EC /* SYData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +219,8 @@
 			children = (
 				6CD2A798196EFF2A0067369C /* SYAppDelegate.h */,
 				6CD2A799196EFF2A0067369C /* SYAppDelegate.m */,
+				972BFB5B196FBC3A00E3C4EC /* SYData.h */,
+				972BFB5C196FBC3A00E3C4EC /* SYData.m */,
 				6CD2A79B196EFF2A0067369C /* Main.storyboard */,
 				6CD2A826196F7EF30067369C /* Controllers */,
 				6CD2A827196F7EFD0067369C /* Views */,
@@ -271,6 +279,8 @@
 				6CD2A824196F70C80067369C /* SYMovieDetailViewController.m */,
 				6CD2A79E196EFF2A0067369C /* SYViewController.h */,
 				6CD2A79F196EFF2A0067369C /* SYViewController.m */,
+				972BFB58196FBAAE00E3C4EC /* SYLikedMoviesCollectionViewController.h */,
+				972BFB59196FBAAE00E3C4EC /* SYLikedMoviesCollectionViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -520,6 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CD2A87B196FA3FD0067369C /* UIView+MDCSwipeToChoose.m in Sources */,
+				972BFB5A196FBAAE00E3C4EC /* SYLikedMoviesCollectionViewController.m in Sources */,
 				6CD2A7A0196EFF2A0067369C /* SYViewController.m in Sources */,
 				6CD2A871196FA3FD0067369C /* MDCViewState.m in Sources */,
 				6CD2A885196FA3FD0067369C /* SDWebImageManager.m in Sources */,
@@ -548,6 +559,7 @@
 				6CD2A82E196FA3EA0067369C /* SYMovieView.m in Sources */,
 				6CD2A870196FA3FD0067369C /* MDCGeometry.m in Sources */,
 				6CD2A874196FA3FD0067369C /* MDCSwipeOptions.m in Sources */,
+				972BFB5D196FBC3A00E3C4EC /* SYData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +689,7 @@
 				INFOPLIST_FILE = "Recco/Recco-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -691,6 +704,7 @@
 				INFOPLIST_FILE = "Recco/Recco-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

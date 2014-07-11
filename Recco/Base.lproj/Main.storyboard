@@ -35,7 +35,7 @@
                     <navigationItem key="navigationItem" title="Recco" id="HPP-Hx-ZXU">
                         <barButtonItem key="rightBarButtonItem" title="View Likes" id="8Oo-wb-EDf">
                             <connections>
-                                <segue destination="M2x-as-T0z" kind="push" id="ceE-iU-Ykg"/>
+                                <segue destination="JEq-Sm-JXm" kind="push" id="W1N-vR-wGL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -47,34 +47,47 @@
             </objects>
             <point key="canvasLocation" x="53" y="126"/>
         </scene>
-        <!--Table View Controller - Likes-->
-        <scene sceneID="2Ja-fu-IKU">
+        <!--w-->
+        <scene sceneID="h5s-mp-HCN">
             <objects>
-                <tableViewController id="M2x-as-T0z" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" id="hPT-DD-fXV">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="JEq-Sm-JXm" userLabel="w" customClass="SYLikedMoviesCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="jMC-zd-HRS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="66" id="9AH-fL-IYQ">
-                                <rect key="frame" x="0.0" y="86" width="320" height="66"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="N3T-UF-DyB">
+                            <size key="itemSize" width="144" height="214"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="sG0-6S-J1x">
+                                <rect key="frame" x="0.0" y="64" width="144" height="214"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9AH-fL-IYQ" id="y2C-Dh-1hU">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="144" height="214"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="popcorn_down.png" translatesAutoresizingMaskIntoConstraints="NO" id="h2T-fr-eIW">
+                                            <rect key="frame" x="0.0" y="0.0" width="144" height="214"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
                         <connections>
-                            <outlet property="dataSource" destination="M2x-as-T0z" id="BLe-xp-kp8"/>
-                            <outlet property="delegate" destination="M2x-as-T0z" id="Rma-M2-SUe"/>
+                            <outlet property="dataSource" destination="JEq-Sm-JXm" id="VAT-Wq-Rh8"/>
+                            <outlet property="delegate" destination="JEq-Sm-JXm" id="QYB-LO-vSD"/>
                         </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Likes" id="YdI-Rw-gdB"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p0O-qc-Cnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="9Sr-bg-HtN"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Alc-vQ-hJz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="560" y="298"/>
+            <point key="canvasLocation" x="541" y="357"/>
         </scene>
         <!--Movie Detail View Controller - movie-->
         <scene sceneID="BIT-AG-WjS">
@@ -163,6 +176,9 @@
             <point key="canvasLocation" x="549" y="-327"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="popcorn_down.png" width="50" height="49"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

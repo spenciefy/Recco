@@ -7,15 +7,15 @@
 //
 
 #import "SYViewController.h"
-#import "Reachability.h"
+#import "SYData.h"
 #import "SYMovieDetailViewController.h"
+
 
 #define kAPI_KEY @"zsjdduvb57m6g4gjys4hyyub"
 
 @interface SYViewController ()
 @property (nonatomic, strong) NSMutableArray *movies;
 @property (nonatomic, strong) NSMutableArray *displayedMovies;
-@property (nonatomic, strong) NSMutableArray *likedMovies;
 
 @end
 
@@ -38,10 +38,8 @@
     [super viewDidLoad];
     _movies = [[NSMutableArray alloc] init];
     _displayedMovies = [[NSMutableArray alloc] init];
-    _likedMovies = [[NSMutableArray alloc]init];
     [self getRandomMoviesFor:5 completionBlock:^(BOOL success) {
         if(success){
-            
             self.frontCardView = [self popMovieViewWithFrame:[self frontCardViewFrame]];
             [self.view addSubview:self.frontCardView];
             
@@ -86,8 +84,10 @@
         NSLog(@"You noped %@.", self.currentMovie.title);
         
     } else {
+        SYData *syData = [SYData sharedManager];
         NSLog(@"You liked %@.", self.currentMovie.title);
-        [_likedMovies addObject:_currentMovie];
+        [syData.likedMovies addObject:_currentMovie];
+        NSLog(@"eewffewewffewfwefwefewfwewfewfeweffew");
         [self addMovieRecommendationForMovie:self.currentMovie.movieID];
     }
         self.frontCardView = self.backCardView;
