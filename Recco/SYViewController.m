@@ -284,8 +284,10 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"pushDetailFromMain"]){
     SYMovieDetailViewController *detailVC = segue.destinationViewController;
     detailVC.movie = _currentMovie;
+    }
 }
 
 @end

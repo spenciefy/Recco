@@ -13,6 +13,7 @@
 		6C358D20196FDCF0006A4511 /* hansolov3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C358D1F196FDCF0006A4511 /* hansolov3.ttf */; };
 		6C358D21196FDE55006A4511 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2A79B196EFF2A0067369C /* Main.storyboard */; };
 		6C358D22196FDEA8006A4511 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD2A78D196EFF290067369C /* UIKit.framework */; };
+		6CCCCFB81971EE0D00216FAF /* SYNavBarLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCCCFB71971EE0D00216FAF /* SYNavBarLabel.m */; };
 		6CD2A78A196EFF290067369C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD2A789196EFF290067369C /* Foundation.framework */; };
 		6CD2A78C196EFF290067369C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD2A78B196EFF290067369C /* CoreGraphics.framework */; };
 		6CD2A794196EFF2A0067369C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2A792196EFF2A0067369C /* InfoPlist.strings */; };
@@ -78,6 +79,8 @@
 		6C2DCF8B1970F1BD00F8E1F6 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		6C2DCF8E1970FB9300F8E1F6 /* posterNullState@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "posterNullState@2x.png"; sourceTree = "<group>"; };
 		6C358D1F196FDCF0006A4511 /* hansolov3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hansolov3.ttf; sourceTree = "<group>"; };
+		6CCCCFB61971EE0D00216FAF /* SYNavBarLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYNavBarLabel.h; sourceTree = "<group>"; };
+		6CCCCFB71971EE0D00216FAF /* SYNavBarLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYNavBarLabel.m; sourceTree = "<group>"; };
 		6CD2A786196EFF290067369C /* Recco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD2A789196EFF290067369C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6CD2A78B196EFF290067369C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -299,6 +302,8 @@
 			children = (
 				6CD2A823196F70C80067369C /* SYMovieDetailViewController.h */,
 				6CD2A824196F70C80067369C /* SYMovieDetailViewController.m */,
+				6CCCCFB61971EE0D00216FAF /* SYNavBarLabel.h */,
+				6CCCCFB71971EE0D00216FAF /* SYNavBarLabel.m */,
 				6CD2A79E196EFF2A0067369C /* SYViewController.h */,
 				6CD2A79F196EFF2A0067369C /* SYViewController.m */,
 				972BFB58196FBAAE00E3C4EC /* SYLikedMoviesCollectionViewController.h */,
@@ -559,6 +564,7 @@
 				6CD2A87B196FA3FD0067369C /* UIView+MDCSwipeToChoose.m in Sources */,
 				972BFB5A196FBAAE00E3C4EC /* SYLikedMoviesCollectionViewController.m in Sources */,
 				6CD2A7A0196EFF2A0067369C /* SYViewController.m in Sources */,
+				6CCCCFB81971EE0D00216FAF /* SYNavBarLabel.m in Sources */,
 				6CD2A871196FA3FD0067369C /* MDCViewState.m in Sources */,
 				6CD2A885196FA3FD0067369C /* SDWebImageManager.m in Sources */,
 				6CD2A882196FA3FD0067369C /* SDWebImageDecoder.m in Sources */,

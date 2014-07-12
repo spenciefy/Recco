@@ -7,7 +7,7 @@
 //
 
 #import "SYMovieDetailViewController.h"
-
+#import "SYNavBarLabel.h"
 #import "SYMovie.h"
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
@@ -29,14 +29,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0];
+
     self.navigationController.navigationItem.titleView.clipsToBounds = NO;
     self.title = _movie.title;
-    UILabel* tlabel=[[UILabel alloc] initWithFrame:CGRectMake(0,00, 200, 40)];
+    SYNavBarLabel* tlabel=[[SYNavBarLabel alloc] init];//WithFrame:CGRectMake(0,0, 200, 40)];
     tlabel.text = self.navigationItem.title;
     tlabel.textColor= [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0];
-    tlabel.font = [UIFont fontWithName:@"HanSolo" size: 37.0];
+    tlabel.font = [UIFont fontWithName:@"HanSolo" size: 30.0];
     tlabel.backgroundColor =[UIColor clearColor];
     tlabel.adjustsFontSizeToFitWidth=YES;
+    [tlabel sizeToFit];
+    [tlabel setTextAlignment:NSTextAlignmentCenter];
     self.navigationItem.titleView=tlabel;
     
     if([_movie.posterImage isEqualToString:@"N/A"]){
@@ -78,7 +82,7 @@
         self.movieTimeLabel.text = [NSString stringWithFormat:@"%@ minutes", _movie.runtime];
     }
     
-    self.movieGenresTextView.text = [_movie.genres componentsJoinedByString:@" "];
+    self.movieGenresTextView.text = [_movie.genres componentsJoinedByString:@"\n"];
     [self.movieGenresTextView sizeToFit];
 //   
 //    [self.movieSynopsisTextView sizeToFit];
@@ -87,6 +91,7 @@
     CGRect frame = self.movieSynopsisTextView.frame;
     UIFont *font = [UIFont fontWithName:@"AvenirNext-Regular" size:14];
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    NSLog(@"_movie.syn %@", _movie.synopsis);
     self.movieSynopsisTextView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, [self textViewHeightForAttributedText:[[NSAttributedString alloc]initWithString:_movie.synopsis attributes:attributes] andWidth:frame.size.width]);
     
      self.movieSynopsisTextView.text = _movie.synopsis;
