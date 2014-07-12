@@ -7,6 +7,7 @@
 //
 
 #import "SYMovieDetailViewController.h"
+
 #import "SYMovie.h"
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
@@ -28,12 +29,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    
     self.navigationController.navigationItem.titleView.clipsToBounds = NO;
     self.title = _movie.title;
     UILabel* tlabel=[[UILabel alloc] initWithFrame:CGRectMake(0,00, 200, 40)];
-    tlabel.text=self.navigationItem.title;
+    tlabel.text = self.navigationItem.title;
     tlabel.textColor= [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0];
     tlabel.font = [UIFont fontWithName:@"HanSolo" size: 37.0];
     tlabel.backgroundColor =[UIColor clearColor];
@@ -91,9 +90,8 @@
     self.movieSynopsisTextView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, [self textViewHeightForAttributedText:[[NSAttributedString alloc]initWithString:_movie.synopsis attributes:attributes] andWidth:frame.size.width]);
     
      self.movieSynopsisTextView.text = _movie.synopsis;
-
-    // Do any additional setup after loading the view.
 }
+
 - (CGFloat)textViewHeightForAttributedText: (NSAttributedString*)text andWidth: (CGFloat)width {
     UITextView *calculationView = [[UITextView alloc] init];
     [calculationView setAttributedText:text];

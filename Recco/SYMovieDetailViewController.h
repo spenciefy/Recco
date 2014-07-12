@@ -10,6 +10,7 @@
 #import "SYMovie.h"
 
 @interface SYMovieDetailViewController : UIViewController
+
 @property (nonatomic, strong) SYMovie *movie;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *movieScrollView;
@@ -25,7 +26,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *movieGenresTextView;
 @property (weak, nonatomic) IBOutlet UITextView *movieSynopsisTextView;
-
 
 
 @end
