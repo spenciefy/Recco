@@ -285,6 +285,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     SYMovieDetailViewController *detailVC = segue.destinationViewController;
+    detailVC.movie = _currentMovie;
 }
 
 @end
