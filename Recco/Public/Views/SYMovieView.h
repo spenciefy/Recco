@@ -18,6 +18,8 @@
 @property (nonatomic, strong, readonly) SYMovie *movie;
 
 - (instancetype)initWithFrame:(CGRect)frame
-                       movie:(SYMovie *)movie
+              withParentFrame:(CGRect)parentFrame
+                        movie:(SYMovie *)movie
                       options:(MDCSwipeToChooseViewOptions *)options;
+
 @end

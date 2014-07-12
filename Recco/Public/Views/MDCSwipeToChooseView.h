@@ -33,8 +33,9 @@
 @interface MDCSwipeToChooseView : UIView
 
 @property (nonatomic, strong) UIButton *viewButton;
-
 @property (nonatomic, strong) UIImageView *posterImageView;
+
+
 @property (nonatomic, strong) UILabel *movieMPAARating;
 
 @property (nonatomic, strong) UIView *movieInfoView;
@@ -56,6 +57,7 @@
  * the behavior of the view.
  */
 - (instancetype)initWithFrame:(CGRect)frame
+              withParentFrame:(CGRect)parentFrame
                       options:(MDCSwipeToChooseViewOptions *)options;
 
 @end

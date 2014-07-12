@@ -43,11 +43,13 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
 
 #pragma mark - Object Lifecycle
 
-- (instancetype)initWithFrame:(CGRect)frame options:(MDCSwipeToChooseViewOptions *)options {
+- (instancetype)initWithFrame:(CGRect)frame
+              withParentFrame:(CGRect)parentFrame
+                      options:(MDCSwipeToChooseViewOptions *)options {
     self = [super initWithFrame:frame];
     if (self) {
         _options = options ? options : [MDCSwipeToChooseViewOptions new];
-        [self setupViews];
+        [self setupViewsWithParentFrame:parentFrame];
         [self constructLikedView];
         [self constructNopeImageView];
         [self setupSwipeToChoose];
@@ -57,7 +59,9 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
 
 #pragma mark - Internal Methods
 
-- (void)setupViews {
+- (void)setupViewsWithParentFrame:(CGRect)parentFrame {
+    NSLog(@"parent frame: %@", NSStringFromCGRect(parentFrame));
+    self.clipsToBounds = NO;
     self.backgroundColor = [UIColor clearColor];
     self.layer.cornerRadius = 5.f;
     self.layer.borderWidth = 2.f;
@@ -65,7 +69,6 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
                                                  green:220.f
                                                   blue:220.f
                                                  alpha:1.f].CGColor;
-    
     _posterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 280, 400)];
     _posterImageView.clipsToBounds = YES;
     [self addSubview:_posterImageView];
@@ -76,7 +79,6 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
     [_viewButton addTarget:self action:@selector(viewTapped:) forControlEvents:UIControlEventTouchUpInside];
     _viewButton.clipsToBounds = YES;
     [self addSubview:_viewButton];
-    
     
     _movieMPAARating = [[UILabel alloc] initWithFrame:CGRectMake(_posterImageView.frame.size.width-60, 0, 60, 30)];
     _movieMPAARating.backgroundColor = [UIColor grayColor];
@@ -94,8 +96,13 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
     _runtimeLabel.font = [UIFont boldSystemFontOfSize:15];
     [_posterImageView addSubview:_runtimeLabel];
     
-    _movieInfoView = [[UIView alloc] initWithFrame:CGRectMake(0, _posterImageView.frame.size.height, _posterImageView.frame.size.width, 68)];
+    _movieInfoView = [[UIView alloc] initWithFrame:CGRectMake(0, parentFrame.size.height-168, _posterImageView.frame.size.width, 68)];
     _movieInfoView.backgroundColor = [UIColor whiteColor];
+    //Hack for iphone 4 screens to adjust view
+    if(parentFrame.size.height <= 480) {
+        _movieInfoView.alpha = 0.9;
+    }
+    
     _movieInfoView.clipsToBounds = YES;
     [self addSubview:_movieInfoView];
     
@@ -137,7 +144,7 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
 - (void)constructLikedView {
     CGRect frame = CGRectMake(MDCSwipeToChooseViewHorizontalPadding,
                               MDCSwipeToChooseViewTopPadding,
-                              CGRectGetMidX(_viewButton.bounds),
+                              CGRectGetMidX(self.posterImageView.bounds),
                               MDCSwipeToChooseViewLabelWidth);
     self.likedView = [[UIView alloc] initWithFrame:frame];
     [self.likedView constructBorderedLabelWithText:self.options.likedText
@@ -149,7 +156,7 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
 
 - (void)constructNopeImageView {
     CGFloat width = CGRectGetMidX(self.posterImageView.bounds);
-    CGFloat xOrigin = CGRectGetMaxX(_viewButton.bounds) - width - MDCSwipeToChooseViewHorizontalPadding;
+    CGFloat xOrigin = CGRectGetMaxX(self.posterImageView.bounds) - width - MDCSwipeToChooseViewHorizontalPadding;
     self.nopeView = [[UIImageView alloc] initWithFrame:CGRectMake(xOrigin,
                                                                   MDCSwipeToChooseViewTopPadding,
                                                                   width,

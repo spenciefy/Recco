@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C2DCF8C1970F1BD00F8E1F6 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6C2DCF891970F1BD00F8E1F6 /* SVProgressHUD.bundle */; };
+		6C2DCF8D1970F1BD00F8E1F6 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2DCF8B1970F1BD00F8E1F6 /* SVProgressHUD.m */; };
+		6C2DCF8F1970FB9300F8E1F6 /* posterNullState@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2DCF8E1970FB9300F8E1F6 /* posterNullState@2x.png */; };
 		6C358D20196FDCF0006A4511 /* hansolov3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C358D1F196FDCF0006A4511 /* hansolov3.ttf */; };
 		6C358D21196FDE55006A4511 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2A79B196EFF2A0067369C /* Main.storyboard */; };
 		6C358D22196FDEA8006A4511 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD2A78D196EFF290067369C /* UIKit.framework */; };
@@ -69,6 +72,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C2DCF881970F1BD00F8E1F6 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		6C2DCF891970F1BD00F8E1F6 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		6C2DCF8A1970F1BD00F8E1F6 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		6C2DCF8B1970F1BD00F8E1F6 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		6C2DCF8E1970FB9300F8E1F6 /* posterNullState@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "posterNullState@2x.png"; sourceTree = "<group>"; };
 		6C358D1F196FDCF0006A4511 /* hansolov3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hansolov3.ttf; sourceTree = "<group>"; };
 		6CD2A786196EFF290067369C /* Recco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD2A789196EFF290067369C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -181,6 +189,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C2DCF871970F1BD00F8E1F6 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				6C2DCF881970F1BD00F8E1F6 /* SVProgressHUD-Prefix.pch */,
+				6C2DCF891970F1BD00F8E1F6 /* SVProgressHUD.bundle */,
+				6C2DCF8A1970F1BD00F8E1F6 /* SVProgressHUD.h */,
+				6C2DCF8B1970F1BD00F8E1F6 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		6CD2A77D196EFF290067369C = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +222,7 @@
 		6CD2A788196EFF290067369C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C2DCF871970F1BD00F8E1F6 /* SVProgressHUD */,
 				6CD2A82F196FA3FD0067369C /* Internal */,
 				6CD2A83A196FA3FD0067369C /* Public */,
 				6CD2A851196FA3FD0067369C /* Reachability.h */,
@@ -265,6 +285,7 @@
 		6CD2A7F4196F1FD30067369C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6C2DCF8E1970FB9300F8E1F6 /* posterNullState@2x.png */,
 				6CD2A7EC196F1DC20067369C /* popcorn_down.png */,
 				6CD2A7ED196F1DC20067369C /* popcorn_up.png */,
 				6CD2A7EE196F1DC20067369C /* red_tomato.png */,
@@ -505,6 +526,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C2DCF8F1970FB9300F8E1F6 /* posterNullState@2x.png in Resources */,
 				6C358D21196FDE55006A4511 /* Main.storyboard in Resources */,
 				6CD2A7F3196F1DC20067369C /* green_tomato.png in Resources */,
 				6CD2A7A2196EFF2A0067369C /* Images.xcassets in Resources */,
@@ -515,6 +537,7 @@
 				6C358D20196FDCF0006A4511 /* hansolov3.ttf in Resources */,
 				6CD2A87E196FA3FD0067369C /* README.md in Resources */,
 				6CD2A7F0196F1DC20067369C /* popcorn_down.png in Resources */,
+				6C2DCF8C1970F1BD00F8E1F6 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +565,7 @@
 				6CD2A878196FA3FD0067369C /* MDCSwipeToChooseView.m in Sources */,
 				6CD2A825196F70C80067369C /* SYMovieDetailViewController.m in Sources */,
 				6CD2A886196FA3FD0067369C /* SDWebImagePrefetcher.m in Sources */,
+				6C2DCF8D1970F1BD00F8E1F6 /* SVProgressHUD.m in Sources */,
 				6CD2A876196FA3FD0067369C /* MDCPanState.m in Sources */,
 				6CD2A875196FA3FD0067369C /* MDCSwipeToChooseViewOptions.m in Sources */,
 				6CD2A872196FA3FD0067369C /* UIColor+MDCRGB8Bit.m in Sources */,

@@ -9,7 +9,7 @@
 #import "SYViewController.h"
 #import "SYData.h"
 #import "SYMovieDetailViewController.h"
-
+#import "SVProgressHUD.h"
 
 #define kAPI_KEY @"zsjdduvb57m6g4gjys4hyyub"
 
@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSMutableArray *movies;
 @property (nonatomic, strong) NSMutableArray *displayedMovies;
 
+@property (nonatomic, strong) SVProgressHUD *progressHUD;
 @end
 
 @implementation SYViewController
@@ -38,13 +39,17 @@
     [super viewDidLoad];
     _movies = [[NSMutableArray alloc] init];
     _displayedMovies = [[NSMutableArray alloc] init];
+    [SVProgressHUD setForegroundColor:[UIColor redColor]];
+    [SVProgressHUD show];
     [self getRandomMoviesFor:5 completionBlock:^(BOOL success) {
         if(success){
+            [SVProgressHUD dismiss];
             self.frontCardView = [self popMovieViewWithFrame:[self frontCardViewFrame]];
             [self.view addSubview:self.frontCardView];
             
             self.backCardView = [self popMovieViewWithFrame:[self backCardViewFrame]];
             [self.view insertSubview:self.backCardView belowSubview:self.frontCardView];
+            
         }
     }];
    
@@ -88,7 +93,10 @@
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              self.backCardView.alpha = 1.f;
-                         } completion:nil];
+                         } completion:^(BOOL finished) {
+                             [_displayedMovies addObject: self.currentMovie.movieID];
+                             NSLog(@"displayed movies %@", self.displayedMovies);
+                         }];
         
     }
     
@@ -125,11 +133,12 @@
                                   error:&error];
             
                  SYMovie *movie = [[SYMovie alloc]initWithTitle:[movieDict objectForKey:@"title"] movieID:[movieDict objectForKey:@"id"] posterImage:[json objectForKey:@"Poster"] mpaaRating:[movieDict objectForKey:@"mpaa_rating"] criticRating:[[movieDict objectForKey:@"ratings"] objectForKey:@"critics_score"] audienceRating:[[movieDict objectForKey:@"ratings"] objectForKey:@"audience_score"]  runtime:[NSString stringWithFormat:@"%@",[movieDict objectForKey:@"runtime"]] genres:[[json objectForKey:@"Genre"] componentsSeparatedByString:@", "] synopysis:[movieDict objectForKey:@"synopsis"] rtURL:[[movieDict objectForKey:@"links"]objectForKey:@"alternate"]];
-            
-            if(![self.displayedMovies containsObject:movie.movieID]){
+            NSLog(@"self.displayedmovies: %@", self.displayedMovies);
+#warning this should technically be here but then we will run out of movies to display and that is no no
+         //   if(![self.displayedMovies containsObject:movie.movieID]){
                  NSLog(@"adding: %@", [movieDict objectForKey:@"title"]);
                 [self.movies addObject:movie];
-            }
+         //   }
             }
         }else{
             NSLog(@"tried to get recommended movies but zero suggestions");
@@ -143,7 +152,6 @@
     // Quick and dirty, just for the purposes of this sample app.
     _frontCardView = frontCardView;
     self.currentMovie = frontCardView.movie;
-    [_displayedMovies addObject: self.currentMovie.movieID];
 }
 
 - (void)getRandomMoviesFor:(NSUInteger)numberOfMovies completionBlock:(void (^)(BOOL success))completionBlock{
@@ -199,18 +207,17 @@
                                       error:&error];
                 
                 SYMovie *movie = [[SYMovie alloc]initWithTitle:[movieDict objectForKey:@"title"] movieID:[movieDict objectForKey:@"id"] posterImage:[json objectForKey:@"Poster"] mpaaRating:[movieDict objectForKey:@"mpaa_rating"] criticRating:[[movieDict objectForKey:@"ratings"] objectForKey:@"critics_score"] audienceRating:[[movieDict objectForKey:@"ratings"] objectForKey:@"audience_score"]  runtime:[NSString stringWithFormat:@"%@",[movieDict objectForKey:@"runtime"]] genres:[[json objectForKey:@"Genre"] componentsSeparatedByString:@", "] synopysis:[movieDict objectForKey:@"synopsis"] rtURL:[[movieDict objectForKey:@"links"]objectForKey:@"alternate"]];
-                
-                if(![self.displayedMovies containsObject:movie.movieID]){
+                #warning this should technically be here but then we will run out of movies to display and that is no no
+               // if(![self.displayedMovies containsObject:movie.movieID]){
                     NSLog(@"adding: %@", [movieDict objectForKey:@"title"]);
                     [self.movies addObject:movie];
-                }
+              //  }
             }
             }
             else{
                 NSLog(@"No results for random, url: %@", url);
             }
             completionBlock(YES);
-        
         }];
    
 }
@@ -236,6 +243,7 @@
     // Create a MovieView with the top Movie in the people array, then pop
     // that Movie off the stack.
     SYMovieView *MovieView = [[SYMovieView alloc] initWithFrame:frame
+                                                withParentFrame:self.view.frame
                                                     movie:self.movies[0]
                                                     options:options];
     [self.movies removeObjectAtIndex:0];
@@ -276,8 +284,7 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-        SYMovieDetailViewController *detailVC = segue.destinationViewController;
-
+    SYMovieDetailViewController *detailVC = segue.destinationViewController;
 }
 
 @end
