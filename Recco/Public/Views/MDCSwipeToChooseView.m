@@ -61,7 +61,8 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
 
 - (void)setupViewsWithParentFrame:(CGRect)parentFrame {
     NSLog(@"parent frame: %@", NSStringFromCGRect(parentFrame));
-    self.clipsToBounds = NO;
+    self.clipsToBounds = YES;
+    self.autoresizesSubviews = YES;
     self.backgroundColor = [UIColor clearColor];
     self.layer.cornerRadius = 5.f;
     self.layer.borderWidth = 2.f;
@@ -70,7 +71,10 @@ static CGFloat const MDCSwipeToChooseViewLabelWidth = 65.f;
                                                   blue:220.f
                                                  alpha:1.f].CGColor;
     _posterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 280, 400)];
-    _posterImageView.clipsToBounds = YES;
+    [self.posterImageView setClipsToBounds:YES];
+    self.posterImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.posterImageView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+
     [self addSubview:_posterImageView];
     
     _viewButton = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -25,11 +25,14 @@
         
         _movie = movie;
         NSLog(@"movie url: %@", _movie.posterImage);
+    
         if([_movie.posterImage isEqualToString:@"N/A"]){
             [self.posterImageView setImage:[UIImage imageNamed:@"posterNullState.png"]];
         }else{
             [self.posterImageView setImageWithURL:[NSURL URLWithString:_movie.posterImage]];
         }
+
+        
         //[self.viewButton setBackgroundImageWithURL:[NSURL URLWithString:_movie.posterImage] forState:UIControlStateNormal];
         self.movieTitle.text = _movie.title;
         self.movieMPAARating.text = _movie.mpaaRating;
