@@ -58,6 +58,12 @@
             
         }
     }];
+
+    if ([[defaults objectForKey: @"firstSwipe"] boolValue] != YES) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome!" message:@"Swipe right to like. Swipe left to dismiss. Tap for more info." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+    }
+        
    
 }
 
@@ -73,6 +79,8 @@
 
 // This is called then a user swipes the view fully left or right.
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject: [NSNumber numberWithBool:YES] forKey: @"firstSwipe"];
     SYData *syData = [SYData sharedManager];
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"You noped %@.", self.currentMovie.title);
@@ -144,11 +152,11 @@
             SYMovie *movie = [[SYMovie alloc]initWithTitle:[movieDict objectForKey:@"title"] movieID:[movieDict objectForKey:@"id"] posterImage:[json objectForKey:@"Poster"] mpaaRating:[movieDict objectForKey:@"mpaa_rating"] criticRating:[[movieDict objectForKey:@"ratings"] objectForKey:@"critics_score"] audienceRating:[[movieDict objectForKey:@"ratings"] objectForKey:@"audience_score"]  runtime:[NSString stringWithFormat:@"%@",[movieDict objectForKey:@"runtime"]] genres:[[json objectForKey:@"Genre"] componentsSeparatedByString:@", "] synopysis:[movieDict objectForKey:@"synopsis"] rtURL:[[movieDict objectForKey:@"links"]objectForKey:@"alternate"] IMDBURL:[[movieDict objectForKey:@"alternate_ids"]objectForKey:@"imdb" ]];
             NSLog(@"self.displayedmovies: %@", self.displayedMovies);
 #warning this should technically be here but then we will run out of movies to display and that is no no
-         //   if(![self.displayedMovies containsObject:movie.movieID]){
+            if(![self.displayedMovies containsObject:movie.movieID]){
                  NSLog(@"adding: %@", [movieDict objectForKey:@"title"]);
                 [self.movies addObject:movie];
-         //   }
             }
+        }
         }else{
             NSLog(@"tried to get recommended movies but zero suggestions");
         }
