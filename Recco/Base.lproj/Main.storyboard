@@ -105,11 +105,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zEy-gp-1bR">
+                            <scrollView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zEy-gp-1bR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XgZ-zV-cah">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XgZ-zV-cah">
                                         <rect key="frame" x="0.0" y="62" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
@@ -196,6 +196,12 @@
                                         </subviews>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="XgZ-zV-cah" secondAttribute="bottom" id="6KK-0G-K3l"/>
+                                    <constraint firstItem="XgZ-zV-cah" firstAttribute="top" secondItem="zEy-gp-1bR" secondAttribute="top" id="DLB-gc-K23"/>
+                                    <constraint firstItem="XgZ-zV-cah" firstAttribute="leading" secondItem="zEy-gp-1bR" secondAttribute="leading" id="x0M-Lu-KOX"/>
+                                    <constraint firstAttribute="trailing" secondItem="XgZ-zV-cah" secondAttribute="trailing" id="y4Z-ah-2t4"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

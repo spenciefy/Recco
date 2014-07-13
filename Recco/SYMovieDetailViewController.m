@@ -30,8 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.translatesAutoresizingMaskIntoConstraints = NO;
-    self.movieScrollView.translatesAutoresizingMaskIntoConstraints  = NO;
+
     self.movieScrollView.delegate = self;
 
     [SVProgressHUD setForegroundColor:[UIColor redColor]];
