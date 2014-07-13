@@ -105,11 +105,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zEy-gp-1bR">
+                            <scrollView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zEy-gp-1bR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XgZ-zV-cah">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XgZ-zV-cah">
                                         <rect key="frame" x="0.0" y="62" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
@@ -143,10 +143,13 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFr-iJ-bYF">
-                                                <rect key="frame" x="59" y="436" width="202" height="42"/>
+                                            <button hidden="YES" appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFr-iJ-bYF">
+                                                <rect key="frame" x="49" y="406" width="222" height="45"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Photos, Traliers, and Reviews">
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                <state key="normal" title="Photos, Trailers, Reviews">
+                                                    <color key="titleColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -171,18 +174,21 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QS5-uR-Bgb">
-                                                <rect key="frame" x="105" y="467" width="97" height="42"/>
+                                            <button hidden="YES" appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QS5-uR-Bgb">
+                                                <rect key="frame" x="95" y="459" width="130" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <state key="normal" title="View on IMDB">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="viewInIMDB:" destination="Aaq-hP-RfI" eventType="touchUpInside" id="3xB-E2-i6e"/>
                                                 </connections>
                                             </button>
-                                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXK-NT-YC5">
-                                                <rect key="frame" x="13" y="257" width="295" height="194"/>
+                                            <textView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXK-NT-YC5">
+                                                <rect key="frame" x="13" y="257" width="295" height="134"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -190,12 +196,6 @@
                                         </subviews>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="XgZ-zV-cah" secondAttribute="bottom" id="6KK-0G-K3l"/>
-                                    <constraint firstItem="XgZ-zV-cah" firstAttribute="top" secondItem="zEy-gp-1bR" secondAttribute="top" id="DLB-gc-K23"/>
-                                    <constraint firstItem="XgZ-zV-cah" firstAttribute="leading" secondItem="zEy-gp-1bR" secondAttribute="leading" id="x0M-Lu-KOX"/>
-                                    <constraint firstAttribute="trailing" secondItem="XgZ-zV-cah" secondAttribute="trailing" id="y4Z-ah-2t4"/>
-                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -204,13 +204,17 @@
                     <connections>
                         <outlet property="audienceImage" destination="Jv8-6D-qWL" id="52I-it-EaB"/>
                         <outlet property="audienceRatingLabel" destination="aI0-BC-dWO" id="60c-LA-cNT"/>
+                        <outlet property="contentView" destination="XgZ-zV-cah" id="VV5-x7-Q8B"/>
                         <outlet property="criticImage" destination="4dC-bz-JNs" id="T35-RZ-4ML"/>
                         <outlet property="criticRatingLabel" destination="CdH-ca-ECu" id="tCW-CM-S1l"/>
+                        <outlet property="imdbButton" destination="QS5-uR-Bgb" id="VhJ-8H-nLL"/>
                         <outlet property="movieGenresTextView" destination="5eH-8D-1PL" id="2Fy-bn-gti"/>
+                        <outlet property="movieScrollView" destination="zEy-gp-1bR" id="BY3-SH-cCW"/>
                         <outlet property="movieSynopsisTextView" destination="uXK-NT-YC5" id="vEm-3v-rSj"/>
                         <outlet property="movieTimeLabel" destination="Q6a-ma-Lpr" id="o4E-0O-aKI"/>
                         <outlet property="mpaaRatingLabel" destination="WjQ-lY-LDW" id="aHd-GE-zTm"/>
                         <outlet property="posterImageView" destination="b33-tL-dYM" id="Gwe-mR-4Sp"/>
+                        <outlet property="rtButton" destination="aFr-iJ-bYF" id="1qx-oR-yMw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Vn-z4-WcP" userLabel="First Responder" sceneMemberID="firstResponder"/>

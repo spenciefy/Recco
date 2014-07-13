@@ -37,6 +37,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    SYData *syData = [SYData sharedManager];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *likedMovies = [NSKeyedUnarchiver unarchiveObjectWithData:[defaults objectForKey:@"likedMovies"]];
+    if([likedMovies count]){
+    syData.likedMovies = [likedMovies mutableCopy];
+    }
     _movies = [[NSMutableArray alloc] init];
     _displayedMovies = [[NSMutableArray alloc] init];
     [SVProgressHUD setForegroundColor:[UIColor redColor]];
@@ -75,6 +81,11 @@
         NSLog(@"You liked %@", self.currentMovie.title);
         [syData.likedMovies addObject:self.currentMovie];
         
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:syData.likedMovies];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:data forKey:@"likedMovies"];
+        
+    
         [self addMovieRecommendationForMovie:self.currentMovie.movieID];
     }
     

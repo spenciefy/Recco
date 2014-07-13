@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SYMovie : NSObject
+@interface SYMovie : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *movieID;
 @property (nonatomic, copy) NSString *title;

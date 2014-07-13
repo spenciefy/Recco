@@ -11,6 +11,7 @@
 #import "SYMovie.h"
 #import "UIImageView+WebCache.h"
 #import "SVWebViewController.h"
+#import "SVProgressHUD.h"
 
 @interface SYMovieDetailViewController ()
 @end
@@ -29,11 +30,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.translatesAutoresizingMaskIntoConstraints = NO;
+    self.movieScrollView.translatesAutoresizingMaskIntoConstraints  = NO;
+    self.movieScrollView.delegate = self;
+
+    [SVProgressHUD setForegroundColor:[UIColor redColor]];
+    [SVProgressHUD show];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0];
 
     self.navigationController.navigationItem.titleView.clipsToBounds = NO;
     self.title = _movie.title;
-    SYNavBarLabel* tlabel=[[SYNavBarLabel alloc] init];//WithFrame:CGRectMake(0,0, 200, 40)];
+    SYNavBarLabel* tlabel=[[SYNavBarLabel alloc] init];
     tlabel.text = self.navigationItem.title;
     tlabel.textColor= [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0];
     tlabel.font = [UIFont fontWithName:@"HanSolo" size: 30.0];
@@ -42,6 +49,7 @@
     [tlabel sizeToFit];
     [tlabel setTextAlignment:NSTextAlignmentCenter];
     self.navigationItem.titleView=tlabel;
+    
     
     if([_movie.posterImage isEqualToString:@"N/A"]){
         [self.posterImageView setImage:[UIImage imageNamed:@"posterNullState.png"]];
@@ -84,35 +92,38 @@
     
     self.movieGenresTextView.text = [_movie.genres componentsJoinedByString:@"\n"];
     [self.movieGenresTextView sizeToFit];
-//   
-//    [self.movieSynopsisTextView sizeToFit];
-//    [self.movieSynopsisTextView layoutIfNeeded];
-//    
-    CGRect frame = self.movieSynopsisTextView.frame;
-    UIFont *font = [UIFont fontWithName:@"AvenirNext-Regular" size:14];
-    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
-    NSLog(@"_movie.syn %@", _movie.synopsis);
-    self.movieSynopsisTextView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, [self textViewHeightForAttributedText:[[NSAttributedString alloc]initWithString:_movie.synopsis attributes:attributes] andWidth:frame.size.width]);
-    
-     self.movieSynopsisTextView.text = _movie.synopsis;
 }
 
 - (CGFloat)textViewHeightForAttributedText: (NSAttributedString*)text andWidth: (CGFloat)width {
     UITextView *calculationView = [[UITextView alloc] init];
     [calculationView setAttributedText:text];
     CGSize size = [calculationView sizeThatFits:CGSizeMake(width, FLT_MAX)];
-    NSLog(@"calculated size.height: %f", size.height);
     return size.height;
 }
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.movieSynopsisTextView setScrollEnabled:NO];
+    CGRect frame = self.movieSynopsisTextView.frame;
+    UIFont *font = [UIFont fontWithName:@"AvenirNext-Regular" size:14];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    self.rtButton.frame = CGRectMake(self.rtButton.frame.origin.x, frame.origin.y + [self textViewHeightForAttributedText:[[NSAttributedString alloc]initWithString:_movie.synopsis attributes:attributes] andWidth:frame.size.width] + 10, self.rtButton.frame.size.width, self.rtButton.frame.size.height);
     
-    [_movieScrollView setContentOffset:CGPointMake(0,0)];
+    self.imdbButton.frame = CGRectMake(self.imdbButton.frame.origin.x, self.rtButton.frame.origin.y + 55, self.imdbButton.frame.size.width, self.imdbButton.frame.size.height);
+
+    self.movieSynopsisTextView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, [self textViewHeightForAttributedText:[[NSAttributedString alloc]initWithString:_movie.synopsis attributes:attributes] andWidth:frame.size.width]);
+    self.movieSynopsisTextView.text = _movie.synopsis;
+    
+    self.imdbButton.hidden = NO;
+    self.rtButton.hidden = NO;
+    
+    [SVProgressHUD dismiss];
     
 }
-- (void)didReceiveMemoryWarning
+
+-(void)viewDidLayoutSubviews
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewDidLayoutSubviews];
+    self.movieScrollView.contentSize = self.contentView.frame.size;
 }
 
 -(IBAction)viewInRottenTomatoes:(id)sender{
@@ -121,7 +132,6 @@
 }
 
 -(IBAction)viewInIMDB:(id)sender{
-    NSLog(@"url for imdb: %@",[NSString stringWithFormat:@"http://imdb.com/title/tt%@", _movie.IMDBURL]);
     SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[NSString stringWithFormat:@"http://imdb.com/title/tt%@", _movie.IMDBURL]];
     
     [self presentViewController:webViewController animated:YES completion:nil];

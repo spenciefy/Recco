@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "SYMovie.h"
 
-@interface SYMovieDetailViewController : UIViewController
+@interface SYMovieDetailViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic, strong) SYMovie *movie;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *movieScrollView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *posterImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *mpaaRatingLabel;
@@ -26,6 +28,9 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *movieGenresTextView;
 @property (weak, nonatomic) IBOutlet UITextView *movieSynopsisTextView;
+
+@property (weak, nonatomic) IBOutlet UIButton *rtButton;
+@property (weak, nonatomic) IBOutlet UIButton *imdbButton;
 
 -(IBAction)viewInRottenTomatoes:(id)sender;
 -(IBAction)viewInIMDB:(id)sender;
