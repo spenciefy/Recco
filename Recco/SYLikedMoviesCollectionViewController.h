@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SYMovie.h"
 
 @interface SYLikedMoviesCollectionViewController : UICollectionViewController {
     NSMutableArray* likedMovies;
+    SYMovie *movieObject;
+    UIBarButtonItem *rightButton;
+    BOOL isDeleteActive;
+    int selectedIndexPath;
 }
 
 @end
