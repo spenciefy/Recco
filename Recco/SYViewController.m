@@ -89,7 +89,7 @@
         [self addMovieRecommendationForMovie:self.currentMovie.movieID];
     }
     
-    if([self.movies count] <= 2){
+    if([self.movies count] <= 3){
         [self getRandomMoviesFor:3 completionBlock:^(BOOL success){
          }];
     }
@@ -115,7 +115,6 @@
 }
 
 -(void) viewWasTapped:(UIView *)view{
-    NSLog(@"view was tapped and now pushing");
     [self performSegueWithIdentifier:@"pushDetailFromMain" sender:self];
 }
 
