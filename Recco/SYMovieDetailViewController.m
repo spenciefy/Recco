@@ -33,6 +33,7 @@
 
     self.movieScrollView.delegate = self;
 
+
     [SVProgressHUD setForegroundColor:[UIColor redColor]];
     [SVProgressHUD show];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0];
@@ -114,15 +115,10 @@
     
     self.imdbButton.hidden = NO;
     self.rtButton.hidden = NO;
+    [self.movieScrollView setContentSize:CGSizeMake(320,self.imdbButton.frame.origin.y + self.imdbButton.frame.size.height + 5)];
     
     [SVProgressHUD dismiss];
     
-}
-
--(void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    self.movieScrollView.contentSize = self.contentView.frame.size;
 }
 
 -(IBAction)viewInRottenTomatoes:(id)sender{

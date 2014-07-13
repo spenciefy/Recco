@@ -32,7 +32,6 @@
             [self.posterImageView setImageWithURL:[NSURL URLWithString:_movie.posterImage]];
         }
 
-        
         //[self.viewButton setBackgroundImageWithURL:[NSURL URLWithString:_movie.posterImage] forState:UIControlStateNormal];
         self.movieTitle.text = _movie.title;
         self.movieMPAARating.text = _movie.mpaaRating;
