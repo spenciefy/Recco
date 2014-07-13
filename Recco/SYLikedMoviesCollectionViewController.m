@@ -57,6 +57,20 @@
     }else{
         [movieImage setImageWithURL:[NSURL URLWithString: movie.posterImage]];
     }
+    
+    UILabel *delete = (UILabel *)[cell viewWithTag: 2];
+    if (isDeleteActive) {
+        if(delete.alpha == 0.0)
+            [UIView animateWithDuration: 0.3 animations: ^ {
+                delete.alpha = 1.0;
+            }];
+    } else {
+        if(delete.alpha == 1.0)
+            [UIView animateWithDuration: 0.3 animations: ^ {
+                delete.alpha = 0.0;
+            }];
+    }
+    
     return cell;
     
 }
@@ -105,6 +119,7 @@
 }
 
 - (void)editLiked {
+    [self.collectionView reloadData];
     if(!isDeleteActive){
         rightButton.title = @"View";
         isDeleteActive = TRUE;
