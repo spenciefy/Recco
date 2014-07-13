@@ -116,17 +116,21 @@
     self.imdbButton.hidden = NO;
     self.rtButton.hidden = NO;
     [self.movieScrollView setContentSize:CGSizeMake(320,self.imdbButton.frame.origin.y + self.imdbButton.frame.size.height + 5)];
+    self.contentView.frame = self.movieScrollView.frame;
     
     [SVProgressHUD dismiss];
     
 }
 
 -(IBAction)viewInRottenTomatoes:(id)sender{
+    NSLog(@"view in rt");
     SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:_movie.rtURL];
     [self presentViewController:webViewController animated:YES completion:nil];
 }
 
 -(IBAction)viewInIMDB:(id)sender{
+    NSLog(@"view imdb");
+
     SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[NSString stringWithFormat:@"http://imdb.com/title/tt%@", _movie.IMDBURL]];
     
     [self presentViewController:webViewController animated:YES completion:nil];

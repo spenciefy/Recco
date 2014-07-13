@@ -52,8 +52,11 @@
     SYMovie *movie = [likedMovies objectAtIndex: indexPath.row];
     
     UIImageView *movieImage = (UIImageView *)[cell viewWithTag: 1];
-    [movieImage setImageWithURL:[NSURL URLWithString: movie.posterImage]];
-    
+    if([movieObject.posterImage isEqualToString:@"N/A"]){
+        [movieImage setImage:[UIImage imageNamed:@"posterNullState.png"]];
+    }else{
+        [movieImage setImageWithURL:[NSURL URLWithString: movie.posterImage]];
+    }
     return cell;
     
 }
@@ -70,7 +73,7 @@
 {
     if(isDeleteActive){
         selectedIndexPath = indexPath.row;
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wait" message:@"Are you sure you want to delete this.  This action cannot be undone" delegate:self cancelButtonTitle:@"Delete" otherButtonTitles:@"Cancel", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wait" message:@"Are you sure you want to delete this movie from your liked movies?" delegate:self cancelButtonTitle:@"Delete" otherButtonTitles:@"Cancel", nil];
         [alert show];
     } else {
         movieObject = [likedMovies objectAtIndex: indexPath.row];
