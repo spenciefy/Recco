@@ -27,5 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *movieGenresTextView;
 @property (weak, nonatomic) IBOutlet UITextView *movieSynopsisTextView;
 
+-(IBAction)viewInRottenTomatoes:(id)sender;
+-(IBAction)viewInIMDB:(id)sender;
 
 @end

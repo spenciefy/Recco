@@ -21,7 +21,8 @@
                       runtime:(NSString *)runtime
                        genres:(NSArray *)genres
                     synopysis:(NSString *)synopsis
-                        rtURL:(NSString *)rtURL {
+                        rtURL:(NSString *)rtURL
+                        IMDBURL:(NSString *)IMDBURL{
     self = [super init];
     if (self) {
         _title = title;
@@ -34,6 +35,7 @@
         _genres = genres;
         _synopsis = synopsis;
         _rtURL = rtURL;
+        _IMDBURL = IMDBURL;
     }
     return self;
 }

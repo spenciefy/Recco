@@ -10,7 +10,7 @@
 #import "SYNavBarLabel.h"
 #import "SYMovie.h"
 #import "UIImageView+WebCache.h"
-#import "UIButton+WebCache.h"
+#import "SVWebViewController.h"
 
 @interface SYMovieDetailViewController ()
 @end
@@ -114,15 +114,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(IBAction)viewInRottenTomatoes:(id)sender{
+    SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:_movie.rtURL];
+    [self presentViewController:webViewController animated:YES completion:nil];
 }
-*/
+
+-(IBAction)viewInIMDB:(id)sender{
+    NSLog(@"url for imdb: %@",[NSString stringWithFormat:@"http://imdb.com/title/tt%@", _movie.IMDBURL]);
+    SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[NSString stringWithFormat:@"http://imdb.com/title/tt%@", _movie.IMDBURL]];
+    
+    [self presentViewController:webViewController animated:YES completion:nil];
+}
 
 @end
